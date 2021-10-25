@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#titleDiv {}
+
+#listTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#listTable tr th {
+	background-color: #333333;
+	color: white;
+	padding: 10px;
+}
+
+#listTable tr td {
+	border-bottom: 1px solid lightgray;
+	padding: 10px;
+}
+
+#btnDiv {
+	text-align: right;
+	margin-top: 30px;
+}
+
+#writeBtn {
+	width: 100px;
+	height: 40px;
+	background-color: #333333;
+	border: 1px solid #333333;
+	color: white;
+	cursor: pointer;
+}

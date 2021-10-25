@@ -1,0 +1,13 @@
+DROP TABLE board;
+CREATE TABLE board
+(
+    no         NUMBER PRIMARY KEY,
+    name       VARCHAR2 (20),
+    pwd        VARCHAR2 (20),
+    title      VARCHAR2 (50),
+    content    CLOB,
+    regdate    DATE DEFAULT SYSDATE
+);
+
+DROP SEQUENCE board_seq;
+CREATE SEQUENCE board_seq START WITH 1 INCREMENT BY 1 NOCYCLE;
