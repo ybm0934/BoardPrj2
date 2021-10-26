@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#wrap {
+	margin: 0 auto;
+	width: 50%;
+}
+
+fieldset {
+	width: 50%;
+	margin: 0 auto;
+	padding: 30px;
+}
+
+#passTable {
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+#passTable th {
+	padding: 10px;
+}
+
+#pwd {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.btn {
+	border: 1px solid black;
+	width: 100px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#cancel {
+	background-color: white;
+}
+
+#confirm {
+	background-color: black;
+	color: white;
+}

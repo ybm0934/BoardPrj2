@@ -23,6 +23,20 @@
 	padding: 10px;
 }
 
+#listTable tr td:not(:nth-child(2)) {
+	text-align: center;
+}
+
+#listTable a {
+	text-decoration: none;
+	color: black;
+}
+
+#listTable a:hover {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
 #btnDiv {
 	text-align: right;
 	margin-top: 30px;
@@ -35,4 +49,48 @@
 	border: 1px solid #333333;
 	color: white;
 	cursor: pointer;
+}
+
+#pagingDiv {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#pagingDiv a {
+	text-decoration: none;
+	border: 1px solid lightgray;
+	color: black;
+	padding: 10px;
+}
+
+#pagingDiv .curSpan {
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+	padding: 10px;
+}
+
+#searchDiv {
+	text-align: center;
+	margin-top: 70px;
+}
+
+#category {
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.box {
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.btn {
+	width: 70px;
+	padding: 10px;
+	border: 1px solid black;
+	color: white;
+	background-color: black;
+	cursor: pointer;
+	vertical-align: middle;
 }

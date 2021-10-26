@@ -19,14 +19,12 @@
 
 #writeTable tr th {
 	border: 1px solid lightgray;
-	background-color: #efefef;
 	padding: 20px;
 	width: 15%;
 }
 
 #writeTable tr td {
 	border: 1px solid lightgray;
-	background-color: #eeeeee;
 	padding: 20px;
 }
 

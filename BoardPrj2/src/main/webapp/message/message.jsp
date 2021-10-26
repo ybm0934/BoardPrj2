@@ -5,6 +5,8 @@
 	String url = (String) request.getAttribute("url");
 %>
 <script>
-	alert('<%=msg %>');
+	if('<%=msg %>' != null && '<%=msg %>' != '') {
+		alert('<%=msg %>');
+	}
 	location.href = '<%=url %>';
 </script>
