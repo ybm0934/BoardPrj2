@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bp.board.model.BoardDAO;
 import com.bp.board.model.BoardVO;
-import com.bp.board.model.PagingVO;
 import com.bp.controller.Controller;
+import com.bp.model.PagingVO;
 
 public class BoardListController implements Controller {
 	

@@ -1,4 +1,4 @@
-package com.bp.board.model;
+package com.bp.model;
 
 public class PagingVO {
 

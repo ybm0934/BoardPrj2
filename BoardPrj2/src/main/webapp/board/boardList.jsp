@@ -14,6 +14,26 @@
 <c:set var="pvo" value="${pvo }" />
 <c:set var="category" value="${category }" />
 <c:set var="keyword" value="${keyword }" />
+<c:url var="goStart" value="boardList.do">
+	<c:param name="currentPage" value="1" />
+	<c:param name="category" value="${category }" />
+	<c:param name="keyword" value="${keyword }" />
+</c:url>
+<c:url var="goEnd" value="boardList.do">
+	<c:param name="currentPage" value="${pvo.totalPage }" />
+	<c:param name="category" value="${category }" />
+	<c:param name="keyword" value="${keyword }" />
+</c:url>
+<c:url var="goFirst" value="boardList.do">
+	<c:param name="currentPage" value="${pvo.firstPage - 1 }" />
+	<c:param name="category" value="${category }" />
+	<c:param name="keyword" value="${keyword }" />
+</c:url>
+<c:url var="goLast" value="boardList.do">
+	<c:param name="currentPage" value="${pvo.lastPage + 1 }" />
+	<c:param name="category" value="${category }" />
+	<c:param name="keyword" value="${keyword }" />
+</c:url>
 <div id="wrap">
 	<div id="titleDiv">
 		<h1>게시판</h1>
@@ -44,10 +64,13 @@
 		<c:set var="vo" value="${list[curPos] }" />
 		<c:set var="curPos" value="${curPos + 1 }" />
 		<c:set var="num" value="${num - 1 }" />
+		<c:url var="contentUrl" value="boardDetail.do">
+			<c:param name="no" value="${vo.no }" />
+		</c:url>
 		<tr>
 			<td>${vo.no }</td>
 			<td>
-				<a href="boardDetail.do?no=${vo.no }">${vo.title }</a>
+				<a href="${contentUrl }">${vo.title }</a>
 			</td>
 			<td>${vo.name }</td>
 			<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy.MM.dd. HH:mm:ss" /></td>
@@ -61,36 +84,36 @@
 	</div>
 	<div id="pagingDiv">
 		<c:if test="${pvo.firstPage > 1 }">
-			<a href="boardList.do?currentPage=1&category=${category }&keyword=${keyword }">&lt;&lt;</a>
-			<a href="boardList.do?currentPage=${pvo.firstPage - 1 }&category=${category }&keyword=${keyword }">PREV</a>
+			<a href="${goStart }">&lt;&lt;</a>
+			<a href="${goFirst }">PREV</a>
 		</c:if>
-		
 		<c:forEach var="i" begin="${pvo.firstPage }" end="${pvo.totalPage }">
+		<c:url var="goPage" value="boardList.do">
+			<c:param name="currentPage" value="${i }" />
+			<c:param name="category" value="${category }" />
+			<c:param name="keyword" value="${keyword }" />
+		</c:url>
 		<c:if test="${pvo.currentPage == i }">
 			<span class="curSpan">${i }</span>
 		</c:if>
 		<c:if test="${pvo.currentPage != i }">
-			<a href="boardList.do?currentPage=${i }&category=${category }&keyword=${keyword }">${i }</a>
+			<a href="${goPage }">${i }</a>
 		</c:if>
 		</c:forEach>
-		
 		<c:if test="${pvo.lastPage < pvo.totalPage }">
-			<a href="boardList.do?currentPage=${pvo.lastPage + 1 }&category=${category }&keyword=${keyword }">NEXT</a>
-			<a href="boardList.do?currentPage=${pvo.totalPage }&category=${category }&keyword=${keyword }">&gt;&gt;</a>
+			<a href="${goLast }">NEXT</a>
+			<a href="${goEnd }">&gt;&gt;</a>
 		</c:if>
 	</div>
 	<div id="searchDiv">
 	<form name="search" action="boardList.do">
 		<select name="category" id="category">
 			<option value="title" 
-			<c:if test="${category == 'title' }">selected="selected"</c:if>
-			>제목</option>
+			<c:if test="${category == 'title' }">selected="selected"</c:if>>제목</option>
 			<option value="name" 
-			<c:if test="${category == 'name' }">selected="selected"</c:if>
-			>작성자</option>
+			<c:if test="${category == 'name' }">selected="selected"</c:if>>작성자</option>
 			<option value="content" 
-			<c:if test="${category == 'content' }">selected="selected"</c:if>
-			>내용</option>
+			<c:if test="${category == 'content' }">selected="selected"</c:if>>내용</option>
 		</select>
 		<input type="text" name="keyword" class="box" value="${keyword }" placeholder="검색어를 입력하세요." spellcheck="false">
 		<input type="submit" class="btn" value="검색">
