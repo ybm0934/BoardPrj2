@@ -12,6 +12,8 @@
 <body>
 <c:set var="list" value="${list }" />
 <c:set var="pvo" value="${pvo }" />
+<c:set var="curPos" value="${pvo.curPos }" />
+<c:set var="num" value="${pvo.num }" />
 <c:set var="category" value="${category }" />
 <c:set var="keyword" value="${keyword }" />
 <c:url var="goStart" value="boardList.do">
@@ -57,8 +59,6 @@
 		</tr>
 		</c:if>
 		<c:if test="${!empty list }">
-		<c:set var="curPos" value="${pvo.curPos }" />
-		<c:set var="num" value="${pvo.num }" />
 		<c:forEach var="i" begin="1" end="${pvo.pageSize }">
 		<c:if test="${num >= 1}">
 		<c:set var="vo" value="${list[curPos] }" />
@@ -87,7 +87,8 @@
 			<a href="${goStart }">&lt;&lt;</a>
 			<a href="${goFirst }">PREV</a>
 		</c:if>
-		<c:forEach var="i" begin="${pvo.firstPage }" end="${pvo.totalPage }">
+		<c:forEach var="i" begin="${pvo.firstPage }" end="${pvo.lastPage }">
+		<c:if test="${i <= pvo.totalPage }">
 		<c:url var="goPage" value="boardList.do">
 			<c:param name="currentPage" value="${i }" />
 			<c:param name="category" value="${category }" />
@@ -98,6 +99,7 @@
 		</c:if>
 		<c:if test="${pvo.currentPage != i }">
 			<a href="${goPage }">${i }</a>
+		</c:if>
 		</c:if>
 		</c:forEach>
 		<c:if test="${pvo.lastPage < pvo.totalPage }">
